@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nishith Padh | Senior Automation Test Lead</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #0f172a;
+      --accent: #3b82f6;
+      --accent2: #06b6d4;
+      --light: #f8fafc;
+      --card: #ffffff;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --green: #10b981;
+      --purple: #8b5cf6;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--light);
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(15,23,42,0.97);
+      backdrop-filter: blur(10px);
+      padding: 14px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-logo { color: #fff; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { color: #cbd5e1; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 100px 20px 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(59,130,246,0.15) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 50%, rgba(6,182,212,0.1) 0%, transparent 60%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(59,130,246,0.2);
+      border: 1px solid rgba(59,130,246,0.4);
+      color: #93c5fd;
+      padding: 6px 18px; border-radius: 50px;
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 1px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800; color: #fff;
+      line-height: 1.15; margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero-subtitle {
+      font-size: 1.15rem; color: #94a3b8;
+      margin-bottom: 12px;
+    }
+    .hero-tagline {
+      font-size: 1rem; color: #64748b;
+      margin-bottom: 36px;
+    }
+    .hero-stats {
+      display: flex; justify-content: center; gap: 40px;
+      margin-bottom: 40px; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 2.2rem; font-weight: 800; color: var(--accent); }
+    .stat-label { font-size: 0.8rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      padding: 13px 30px; border-radius: 8px;
+      font-weight: 600; font-size: 0.92rem;
+      text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+      box-shadow: 0 4px 20px rgba(59,130,246,0.4);
+    }
+    .btn-primary:hover { background: #2563eb; transform: translateY(-2px); }
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.25);
+      color: #cbd5e1; background: transparent;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* SECTIONS */
+    section { padding: 80px 20px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 800; color: var(--primary); margin-bottom: 40px;
+    }
+    .section-title span { color: var(--accent); }
+
+    /* ABOUT */
+    .about { background: #fff; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .about-text p { color: var(--muted); margin-bottom: 16px; font-size: 1rem; }
+    .about-highlights { display: flex; flex-direction: column; gap: 16px; }
+    .highlight-card {
+      background: var(--light);
+      border-left: 3px solid var(--accent);
+      padding: 16px 20px; border-radius: 0 8px 8px 0;
+    }
+    .highlight-card strong { color: var(--primary); font-size: 0.95rem; display: block; margin-bottom: 4px; }
+    .highlight-card span { color: var(--muted); font-size: 0.88rem; }
+
+    /* SKILLS */
+    .skills-bg { background: var(--light); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .skill-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 28px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .skill-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-3px); }
+    .skill-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .skill-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .skill-card h3 { font-size: 1rem; font-weight: 700; color: var(--primary); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: var(--light);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 4px 12px; border-radius: 50px;
+      font-size: 0.78rem; font-weight: 500;
+    }
+    .tag-accent { background: rgba(59,130,246,0.08); border-color: rgba(59,130,246,0.25); color: var(--accent); }
+
+    /* EXPERIENCE */
+    .experience { background: #fff; }
+    .timeline { position: relative; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 20px; top: 0; bottom: 0; width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2));
+    }
+    .timeline-item { padding-left: 60px; margin-bottom: 40px; position: relative; }
+    .timeline-dot {
+      position: absolute; left: 11px; top: 6px;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+    }
+    .exp-card {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px 28px;
+    }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+    .exp-role { font-size: 1.05rem; font-weight: 700; color: var(--primary); }
+    .exp-date {
+      background: rgba(59,130,246,0.1);
+      color: var(--accent); font-size: 0.78rem;
+      font-weight: 600; padding: 3px 12px; border-radius: 50px;
+    }
+    .exp-company { color: var(--accent); font-weight: 600; font-size: 0.92rem; margin-bottom: 14px; }
+    .exp-points { list-style: none; }
+    .exp-points li {
+      color: var(--muted); font-size: 0.9rem;
+      padding: 5px 0 5px 18px; position: relative;
+    }
+    .exp-points li::before {
+      content: '→'; position: absolute; left: 0;
+      color: var(--accent); font-weight: 700;
+    }
+
+    /* ACHIEVEMENTS */
+    .achievements { background: linear-gradient(135deg, #0f172a, #1e3a5f); }
+    .achievements .section-title { color: #fff; }
+    .achievements .section-label { color: #93c5fd; }
+    .achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .achievement-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px; padding: 24px;
+      text-align: center; transition: background 0.2s;
+    }
+    .achievement-card:hover { background: rgba(59,130,246,0.15); }
+    .achievement-icon { font-size: 2rem; margin-bottom: 12px; }
+    .achievement-card h3 { color: #fff; font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+    .achievement-card p { color: #94a3b8; font-size: 0.84rem; }
+    .metric { font-size: 1.8rem; font-weight: 800; color: var(--accent2); margin-bottom: 4px; }
+
+    /* CERTIFICATIONS */
+    .certifications { background: var(--light); }
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .cert-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px;
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .cert-badge {
+      width: 48px; height: 48px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0;
+    }
+    .cert-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+    .cert-card p { font-size: 0.83rem; color: var(--muted); }
+    .cert-status {
+      display: inline-block; margin-top: 8px;
+      padding: 2px 10px; border-radius: 50px; font-size: 0.75rem; font-weight: 600;
+    }
+    .status-active { background: rgba(16,185,129,0.1); color: var(--green); }
+    .status-ongoing { background: rgba(139,92,246,0.1); color: var(--purple); }
+
+    /* CONTACT */
+    .contact { background: #fff; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .contact-info { display: flex; flex-direction: column; gap: 16px; }
+    .contact-item {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 20px;
+      background: var(--light); border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .contact-icon {
+      width: 42px; height: 42px; border-radius: 8px;
+      background: rgba(59,130,246,0.1);
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .contact-item strong { font-size: 0.82rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; display: block; }
+    .contact-item span { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
+    .contact-cta {
+      background: linear-gradient(135deg, #0f172a, #1e3a5f);
+      border-radius: 16px; padding: 40px;
+      color: #fff; text-align: center;
+    }
+    .contact-cta h3 { font-size: 1.4rem; margin-bottom: 10px; }
+    .contact-cta p { color: #94a3b8; margin-bottom: 24px; font-size: 0.92rem; }
+
+    /* FOOTER */
+    footer {
+      background: #0f172a; color: #475569;
+      text-align: center; padding: 24px;
+      font-size: 0.85rem;
+    }
+    footer span { color: var(--accent); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 16px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hero-stats { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Nishith<span>Padh</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">🚀 Open to Opportunities</div>
+    <h1>Nishith <span>Padh</span></h1>
+    <p class="hero-subtitle">Senior Software Test Lead · Automation Architect · QA Strategist</p>
+    <p class="hero-tagline">Building scalable test automation ecosystems that accelerate delivery and elevate product quality</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">11.4</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">7+</div>
+        <div class="stat-label">Years Automation</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Years Leadership</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">25%</div>
+        <div class="stat-label">CI/CD Pass Rate ↑</div>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="#experience" class="btn btn-primary">View Experience</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">Driving Quality <span>Excellence</span> at Scale</h2>
+        <p>With over 11 years in software quality engineering, I specialise in architecting and implementing end-to-end test automation frameworks that bridge the gap between fast-paced Agile delivery and robust product quality.</p>
+        <p>From Banking and Fintech platforms to AI-powered SaaS products, I've led QA transformations across multiple domains — selecting the right tools, building scalable frameworks, mentoring teams, and driving measurable business impact.</p>
+        <p>Currently serving as <strong>Senior Software Test Lead at HCL Technologies</strong> on the BillGO Banking project, with ISTQB-CTFL certification and an ongoing IIT Patna Gen AI certification.</p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <strong>🏦 Domain Expertise</strong>
+          <span>Banking, Fintech, SaaS, Product-based platforms across regulated environments</span>
+        </div>
+        <div class="highlight-card">
+          <strong>🤖 Automation Architect</strong>
+          <span>Playwright, Selenium, Rest Assured, Pytest, Robot Framework, Cypress, BDD Cucumber</span>
+        </div>
+        <div class="highlight-card">
+          <strong>🔁 CI/CD Champion</strong>
+          <span>GitHub Actions, Jenkins declarative pipelines, Slack reporting integration</span>
+        </div>
+        <div class="highlight-card">
+          <strong>🧠 Gen AI Explorer</strong>
+          <span>make.com, n8n, Replit, Claude, Lovable.dev — leveraging AI for process automation</span>
+        </div>
+        <div class="highlight-card">
+          <strong>👥 People Leader</strong>
+          <span>5+ years leading QA teams, mentoring junior engineers, driving Agile ceremonies</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-bg" id="skills">
+  <div class="container">
+    <div class="section-label">Technical Expertise</div>
+    <h2 class="section-title">Skills & <span>Technologies</span></h2>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <div class="skill-icon" style="background:rgba(59,130,246,0.1);">🧪</div>
+          <h3>Automation Frameworks</h3>
+        </div>
+        <div class="tags">
+          <span class="tag tag-accent">Playwright</span>
+          <span class="tag tag-accent">Selenium</span>
+          <span class="tag tag-accent">Rest Assured</span>
+          <span class="tag">Cypress</span>
+          <span class="tag">Pytest</span>
+          <span class="tag">ROBOT Framework</span>
+          <span class="tag">TestNG</span>
+          <span class="tag">CodeceptJS</span>
+          <span class="tag">Page Object Model</span>
+          <span class="tag">BDD Cucumber</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <div class="skill-icon" style="background:rgba(6,182,212,0.1);">⚙️</div>
+          <h3>CI/CD & DevOps</h3>
+        </div>
+        <div class="tags">
+          <span class="tag tag-accent">GitHub Actions</span>
+          <span class="tag tag-accent">Jenkins</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Ansible</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Linux</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <div class="skill-icon" style="background:rgba(16,185,129,0.1);">📡</div>
+          <h3>API & Performance Testing</h3>
+        </div>
+        <div class="tags">
+          <span class="tag tag-accent">POSTMAN</span>
+          <span class="tag tag-accent">JMeter</span>
+          <span class="tag">Rest Assured</span>
+          <span class="tag">Grafana</span>
+          <span class="tag">Apache Kafka</span>
+          <span class="tag">Apache Trino</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <div class="skill-icon" style="background:rgba(139,92,246,0.1);">💻</div>
+          <h3>Languages & Databases</h3>
+        </div>
+        <div class="tags">
+          <span class="tag tag-accent">Python</span>
+          <span class="tag tag-accent">Java</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Shell Script</span>
+          <span class="tag">MINIO</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <div class="skill-icon" style="background:rgba(245,158,11,0.1);">📊</div>
+          <h3>Project & Test Management</h3>
+        </div>
+        <div class="tags">
+          <span class="tag tag-accent">Jira</span>
+          <span class="tag tag-accent">Zephyr Scale</span>
+          <span class="tag">Asana</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">Nagios</span>
+          <span class="tag">Centreon</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <div class="skill-icon" style="background:rgba(236,72,153,0.1);">🤖</div>
+          <h3>Gen AI & Automation Tools</h3>
+        </div>
+        <div class="tags">
+          <span class="tag tag-accent">make.com</span>
+          <span class="tag tag-accent">n8n</span>
+          <span class="tag">Claude AI</span>
+          <span class="tag">Replit</span>
+          <span class="tag">Lovable.dev</span>
+          <span class="tag">Process Automation</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="container">
+    <div class="section-label">Career Journey</div>
+    <h2 class="section-title">Work <span>Experience</span></h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role">Senior Software Test Lead</div>
+            <div class="exp-date">Nov 2023 – Present</div>
+          </div>
+          <div class="exp-company">HCL Technologies · Project: BillGO (Banking Domain)</div>
+          <ul class="exp-points">
+            <li>Led evaluation & selection of Playwright as the automation framework; presented findings to stakeholders</li>
+            <li>Built Playwright-based UI, mobile & API automation (Rest Assured + BDD Cucumber) integrated with GitHub CI/CD</li>
+            <li>Configured real-time Slack reporting and ensured full Jira traceability via Zephyr Scale</li>
+            <li>Facilitated sprint ceremonies (stand-ups, planning, retrospectives) and mentored junior QA engineers</li>
+            <li>Received 5 client appreciations for critical defect discovery, payment edge cases, and Autopay automation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role">Associate Technical Architect – Testing</div>
+            <div class="exp-date">Sep 2022 – Jan 2023</div>
+          </div>
+          <div class="exp-company">Quantiphi Solutions Analytics Pvt Ltd</div>
+          <ul class="exp-points">
+            <li>Drafted high-level Test Strategy and detailed Test Plans aligned with business goals</li>
+            <li>Automated critical business scenarios using Java and Python; conducted API testing via Postman</li>
+            <li>Utilised AWS for test environment setup, deployment automation, and performance testing</li>
+            <li>Performed backend data validation using SQL queries for functional and business correctness</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role">Software Testing Lead</div>
+            <div class="exp-date">Oct 2021 – Sep 2022</div>
+          </div>
+          <div class="exp-company">Engagely.ai (Product-based)</div>
+          <ul class="exp-points">
+            <li>Led daily stand-ups and scrum meetings; planned resource allocation for product releases</li>
+            <li>Built and enhanced API automation frameworks with Selenium + Rest Assured; executed Jenkins pipelines</li>
+            <li>Upgraded automation frameworks to Selenium Java and mentored junior QA staff</li>
+            <li>Performed sanity testing on pre-release environments and coordinated defect resolution</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role">Software QA Executive</div>
+            <div class="exp-date">Feb 2020 – Oct 2021</div>
+          </div>
+          <div class="exp-company">Cnergyis Infotech India Pvt Ltd (Product-based)</div>
+          <ul class="exp-points">
+            <li>Set up mobile automation using Selenium, Appium, and Python for emulators and real Android devices</li>
+            <li>Developed web automation with Selenium, Pytest, and Robot Framework with enhanced logging</li>
+            <li>Conducted API load testing using JMeter; mentored QA team in automation best practices</li>
+            <li>Migrated frameworks to Selenium-Java and maintained robust, reusable test scripts</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role">Software Quality Analyst</div>
+            <div class="exp-date">Aug 2014 – Feb 2020</div>
+          </div>
+          <div class="exp-company">Unotech Software Pvt Ltd (Product & Service-based)</div>
+          <ul class="exp-points">
+            <li>End-to-end test case preparation, execution, bug reporting, and regression testing</li>
+            <li>Added Selenium-Java automation test cases and automated app deployments via shell scripts</li>
+            <li>Automated Big Data tools installation using Ansible in Docker containers</li>
+            <li>Managed infrastructure services, cron jobs, and MySQL-based ticket tracking</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="achievements" id="achievements">
+  <div class="container">
+    <div class="section-label">Impact & Recognition</div>
+    <h2 class="section-title">Key <span style="color:var(--accent2)">Achievements</span></h2>
+    <div class="achievements-grid">
+
+      <div class="achievement-card">
+        <div class="metric">25%</div>
+        <h3>CI/CD Pipeline Pass Rate Increase</h3>
+        <p>Improved pipeline reliability through robust automated test integration and GitHub Actions workflows</p>
+      </div>
+
+      <div class="achievement-card">
+        <div class="metric">8%</div>
+        <h3>Defect Detection Efficiency Boost</h3>
+        <p>Increased pre-production defect detection from automated tests, reducing production incidents</p>
+      </div>
+
+      <div class="achievement-card">
+        <div class="achievement-icon">🏆</div>
+        <h3>5× Client Appreciations</h3>
+        <p>Received multiple client recognitions (2023–2025) for framework selection, critical bug discovery, and payment automation</p>
+      </div>
+
+      <div class="achievement-card">
+        <div class="achievement-icon">🎯</div>
+        <h3>Playwright Framework POC</h3>
+        <p>Appreciated by Technical Head for leading a Playwright evaluation POC that advanced the team's automation strategy</p>
+      </div>
+
+      <div class="achievement-card">
+        <div class="achievement-icon">🔍</div>
+        <h3>Critical Payment Defects Found</h3>
+        <p>Identified critical bugs in one-time payments and Autopay scenarios in Banking domain, preventing production failures</p>
+      </div>
+
+      <div class="achievement-card">
+        <div class="achievement-icon">📋</div>
+        <h3>ISTQB Certified Since 2016</h3>
+        <p>Maintained active ISTQB-CTFL certification for 9+ years, demonstrating sustained commitment to QA standards</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certifications" id="certifications">
+  <div class="container">
+    <div class="section-label">Credentials</div>
+    <h2 class="section-title">Certifications & <span>Education</span></h2>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-badge">📜</div>
+        <div>
+          <h3>ISTQB – CTFL</h3>
+          <p>International Software Testing Qualifications Board – Certified Tester Foundation Level</p>
+          <span class="cert-status status-active">✓ Active since October 2016</span>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-badge">🧠</div>
+        <div>
+          <h3>IIT Patna – Gen AI Certification</h3>
+          <p>Six-month intensive programme covering Generative AI concepts, tools, and real-world applications</p>
+          <span class="cert-status status-ongoing">⏳ Currently Ongoing</span>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-badge">🎓</div>
+        <div>
+          <h3>Bachelor of Engineering</h3>
+          <p>A.D. Patel Institute of Technology · Gujarat Technological University · 2010–2014 · CGPA: 6.33/10</p>
+          <span class="cert-status status-active">✓ Completed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-label">Let's Connect</div>
+    <h2 class="section-title">Get In <span>Touch</span></h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <strong>Email</strong>
+            <span>nishithpadh@gmail.com</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <strong>Phone</strong>
+            <span>+91 9167458785</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <strong>Location</strong>
+            <span>Manish Nagar, Nagpur, Maharashtra – 440015</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🔗</div>
+          <div>
+            <strong>LinkedIn</strong>
+            <a href="https://www.linkedin.com/in/nishith-padh-607466a0" target="_blank" style="color:var(--accent);font-weight:600;text-decoration:none;font-size:0.95rem;">www.linkedin.com/in/nishith-padh-607466a0</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-cta">
+        <h3>Ready to Lead Your QA Strategy?</h3>
+        <p>With 11+ years of QA and automation expertise, I bring technical depth, leadership, and a track record of measurable impact. Let's discuss how I can help your team ship faster with confidence.</p>
+        <a href="mailto:nishithpadh@gmail.com" class="btn btn-primary" style="display:inline-block;">Send Me an Email →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Nishith Padh</span> · Senior Software Test Lead · Nagpur, India</p>
+</footer>
+
+</body>
+</html>
