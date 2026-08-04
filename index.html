@@ -1,272 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Nishith Padh | Senior Software Test Lead & AI Testing Expert</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet"/>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --bg:#050D1A;--bg2:#0A1628;--bg3:#0F1F3D;
-  --teal:#00FFD1;--teal2:#00C9A7;--blue:#4F8EF7;
-  --purple:#A855F7;--gold:#F59E0B;--green:#10B981;--red:#F43F5E;
-  --text:#E2E8F0;--muted:#64748B;--border:rgba(255,255,255,0.07);
-  --glass:rgba(255,255,255,0.04);--radius:16px;
-}
-html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.7;}
-::-webkit-scrollbar{width:5px;}
-::-webkit-scrollbar-track{background:var(--bg);}
-::-webkit-scrollbar-thumb{background:var(--teal);border-radius:3px;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Nishith Padh | Senior Software Test Lead &amp; AI Testing Expert</title>
+  <style>
+    /* ── TOKENS ─────────────────────────────────────────────── */
+    :root{
+      --bg:#0a0f1e; --bg2:#0d1428; --bg3:#111827;
+      --accent:#3b82f6; --accent2:#60a5fa;
+      --green:#10b981; --purple:#8b5cf6;
+      --text:#e2e8f0; --muted:#94a3b8;
+      --border:rgba(59,130,246,0.15);
+      --card:rgba(255,255,255,0.04);
+      --nav-h:64px;
+      /* fluid spacing scale */
+      --sp-xs:clamp(0.5rem,1vw,0.75rem);
+      --sp-sm:clamp(0.75rem,2vw,1.25rem);
+      --sp-md:clamp(1.25rem,3vw,2rem);
+      --sp-lg:clamp(2rem,5vw,3.5rem);
+      --sp-xl:clamp(3rem,7vw,5rem);
+      /* fluid type scale */
+      --fs-xs:clamp(0.72rem,1.5vw,0.78rem);
+      --fs-sm:clamp(0.82rem,1.8vw,0.9rem);
+      --fs-base:clamp(0.9rem,2vw,1rem);
+      --fs-md:clamp(1rem,2.2vw,1.1rem);
+      --fs-lg:clamp(1.3rem,3vw,1.6rem);
+      --fs-xl:clamp(1.8rem,4vw,2.4rem);
+      --fs-2xl:clamp(2.2rem,6vw,3.8rem);
+    }
 
-/* ── CANVAS BG ── */
-#canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.4;}
+    /* ── RESET ───────────────────────────────────────────────── */
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;font-size:16px;}
+    body{
+      background:var(--bg);color:var(--text);
+      font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+    }
+    img,svg{max-width:100%;display:block;}
+    a{color:var(--accent2);text-decoration:none;transition:color .2s;}
+    a:hover{color:#fff;}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 4%;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(5,13,26,0.85);backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);}
-.logo{font-family:'Fira Code',monospace;font-size:1rem;background:linear-gradient(135deg,var(--teal),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.nav-links{display:flex;gap:1.8rem;list-style:none;}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:.4px;transition:.3s;}
-.nav-links a:hover{color:var(--teal);}
-.nav-hire{padding:.4rem 1.2rem;border:1px solid var(--teal);border-radius:6px;color:var(--teal);
-  text-decoration:none;font-size:.82rem;font-weight:600;transition:.3s;background:transparent;}
-.nav-hire:hover{background:rgba(0,255,209,0.1);}
+    /* ── NAV ─────────────────────────────────────────────────── */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:999;
+      height:var(--nav-h);
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 clamp(1rem,4vw,2.5rem);
+      background:rgba(10,15,30,0.88);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-logo{
+      font-family:'Courier New',monospace;
+      font-size:clamp(0.95rem,2.5vw,1.1rem);
+      font-weight:700;color:var(--accent2);
+      white-space:nowrap;
+    }
+    .nav-links{
+      display:flex;gap:clamp(1rem,2.5vw,1.8rem);
+      list-style:none;
+    }
+    .nav-links a{
+      font-size:var(--fs-sm);color:var(--muted);
+      transition:color .2s;white-space:nowrap;
+    }
+    .nav-links a:hover{color:#fff;}
 
-/* ── HERO ── */
-#hero{min-height:100vh;display:flex;align-items:center;padding:0 8%;position:relative;z-index:1;}
-.hero-wrap{max-width:900px;}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,255,209,0.07);
-  border:1px solid rgba(0,255,209,0.2);border-radius:20px;padding:.35rem 1rem;
-  font-family:'Fira Code',monospace;font-size:.8rem;color:var(--teal);margin-bottom:1.5rem;
-  animation:fadeUp .6s ease both .1s;}
-.ping{width:8px;height:8px;background:var(--teal);border-radius:50%;animation:ping 1.5s ease-in-out infinite;}
-@keyframes ping{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.5);opacity:.5;}}
-.hero-name{font-size:clamp(3rem,7vw,5.5rem);font-weight:900;line-height:1.05;
-  background:linear-gradient(135deg,#fff 30%,var(--teal) 70%,var(--blue));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  animation:fadeUp .6s ease both .25s;letter-spacing:-1px;}
-.hero-role{font-size:clamp(1rem,2.5vw,1.4rem);color:var(--muted);font-weight:400;
-  margin:.8rem 0 1.5rem;animation:fadeUp .6s ease both .4s;}
-.hero-role em{color:var(--blue);font-style:normal;font-weight:600;}
-.hero-desc{font-size:1rem;color:var(--muted);max-width:600px;line-height:1.8;
-  margin-bottom:2.5rem;animation:fadeUp .6s ease both .55s;}
+    /* hamburger */
+    .nav-toggle{
+      display:none;flex-direction:column;gap:5px;
+      background:none;border:none;cursor:pointer;padding:4px;
+    }
+    .nav-toggle span{
+      display:block;width:24px;height:2px;
+      background:var(--muted);border-radius:2px;
+      transition:transform .3s,opacity .3s;
+    }
+    .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .nav-toggle.open span:nth-child(2){opacity:0;}
+    .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
-/* Stats row */
-.hero-stats{display:flex;gap:3rem;margin-bottom:2.5rem;animation:fadeUp .6s ease both .7s;}
-.stat-box{position:relative;}
-.stat-num{font-size:2.4rem;font-weight:900;background:linear-gradient(135deg,var(--teal),var(--blue));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;display:block;}
-.stat-label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-top:.2rem;}
-.stat-sep{width:1px;background:var(--border);align-self:stretch;}
+    /* mobile nav drawer */
+    .nav-drawer{
+      display:none;position:fixed;top:var(--nav-h);left:0;right:0;
+      background:rgba(10,15,30,0.97);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--border);
+      padding:1.5rem clamp(1rem,4vw,2.5rem);
+      z-index:998;
+      flex-direction:column;gap:1.2rem;list-style:none;
+    }
+    .nav-drawer.open{display:flex;}
+    .nav-drawer a{font-size:1rem;color:var(--muted);padding:0.3rem 0;}
+    .nav-drawer a:hover{color:#fff;}
 
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .6s ease both .85s;}
-.btn-g{background:linear-gradient(135deg,var(--teal),var(--blue));color:#050D1A;
-  padding:.75rem 2rem;border-radius:8px;font-weight:700;text-decoration:none;font-size:.9rem;
-  transition:.3s;border:none;cursor:pointer;display:inline-block;}
-.btn-g:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(0,255,209,0.25);}
-.btn-o{border:1px solid rgba(255,255,255,0.2);color:var(--text);
-  padding:.75rem 2rem;border-radius:8px;font-weight:600;text-decoration:none;font-size:.9rem;
-  transition:.3s;background:var(--glass);backdrop-filter:blur(10px);}
-.btn-o:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px);}
+    /* ── HERO ────────────────────────────────────────────────── */
+    .hero{
+      min-height:100svh;
+      display:flex;flex-direction:column;
+      justify-content:center;align-items:center;text-align:center;
+      padding:calc(var(--nav-h) + var(--sp-lg)) clamp(1rem,5vw,3rem) var(--sp-lg);
+      background:radial-gradient(ellipse 80% 55% at 50% 0%,rgba(59,130,246,0.12) 0%,transparent 70%);
+    }
+    .hero-badge{
+      display:inline-flex;align-items:center;gap:0.5rem;
+      background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);
+      color:var(--green);font-size:var(--fs-xs);padding:0.35rem 1rem;
+      border-radius:999px;margin-bottom:var(--sp-md);letter-spacing:0.02em;
+    }
+    .hero-badge::before{
+      content:'';display:inline-block;width:7px;height:7px;
+      border-radius:50%;background:var(--green);
+      animation:pulse 2s infinite;flex-shrink:0;
+    }
+    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
 
-/* floating scroll indicator */
-.scroll-ind{position:absolute;bottom:2.5rem;left:8%;display:flex;flex-direction:column;align-items:flex-start;gap:.4rem;animation:float 3s ease-in-out infinite;}
-.scroll-text{font-family:'Fira Code',monospace;font-size:.7rem;color:var(--muted);}
-.scroll-bar{width:40px;height:2px;background:linear-gradient(to right,var(--teal),transparent);border-radius:1px;}
-@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+    .hero h1{
+      font-size:var(--fs-2xl);font-weight:800;line-height:1.1;
+      margin-bottom:0.5rem;letter-spacing:-0.02em;
+    }
+    .hero h1 span{
+      background:linear-gradient(135deg,var(--accent2),var(--purple));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    }
+    .hero-tagline{
+      font-size:var(--fs-base);color:var(--muted);
+      margin-bottom:0.4rem;
+    }
+    .hero-tagline em{color:var(--accent2);font-style:normal;}
+    .hero-sub{
+      font-size:var(--fs-base);color:var(--muted);
+      max-width:min(640px,90%);margin:0.8rem auto var(--sp-md);
+      line-height:1.7;
+    }
+    .hero-sub em{color:var(--accent2);font-style:normal;}
 
-/* ── SECTIONS ── */
-section{padding:7rem 8%;position:relative;z-index:1;}
-.sec-eyebrow{font-family:'Fira Code',monospace;font-size:.8rem;color:var(--teal);
-  letter-spacing:2px;text-transform:uppercase;margin-bottom:.6rem;display:block;}
-.sec-title{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;color:#fff;
-  margin-bottom:.6rem;line-height:1.2;}
-.sec-title span{background:linear-gradient(135deg,var(--teal),var(--blue));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.sec-bar{width:50px;height:3px;background:linear-gradient(to right,var(--teal),var(--blue));
-  border-radius:2px;margin-bottom:3.5rem;}
+    /* counters */
+    .counters{
+      display:flex;flex-wrap:wrap;justify-content:center;
+      gap:clamp(1rem,3vw,2.5rem);
+      margin:var(--sp-sm) 0 var(--sp-md);
+    }
+    .counter-box{text-align:center;min-width:80px;}
+    .counter-val{
+      font-size:clamp(1.8rem,4vw,2.6rem);
+      font-weight:800;color:var(--accent2);line-height:1;
+    }
+    .counter-label{
+      font-size:var(--fs-xs);color:var(--muted);
+      margin-top:0.35rem;white-space:nowrap;
+    }
 
-/* ── ABOUT ── */
-#about{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);}
-.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:start;}
-.about-body p{color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:1rem;}
-.about-body p strong{color:var(--teal);}
-.about-tags{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.5rem;}
-.a-tag{background:rgba(255,255,255,0.04);border:1px solid var(--border);
-  color:var(--muted);border-radius:6px;padding:.25rem .75rem;font-size:.78rem;transition:.3s;}
-.a-tag:hover{border-color:var(--teal);color:var(--teal);}
-.about-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);
-  padding:2rem;backdrop-filter:blur(20px);}
-.about-card-title{font-family:'Fira Code',monospace;color:var(--teal);font-size:.82rem;
-  margin-bottom:1.2rem;letter-spacing:1px;}
-.info-row{display:flex;align-items:center;gap:.75rem;padding:.7rem 0;
-  border-bottom:1px solid var(--border);}
-.info-row:last-child{border:none;}
-.info-icon{font-size:1.1rem;width:24px;text-align:center;flex-shrink:0;}
-.info-label{font-size:.75rem;color:var(--muted);font-weight:500;min-width:80px;}
-.info-val{font-size:.83rem;color:var(--text);font-weight:500;}
-.info-val a{color:var(--teal);text-decoration:none;}
-.info-val a:hover{text-decoration:underline;}
+    .hero-btns{
+      display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;
+      margin-top:var(--sp-sm);
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,var(--accent),var(--purple));
+      color:#fff;padding:0.7rem 1.6rem;border-radius:8px;
+      font-weight:600;font-size:var(--fs-sm);
+      transition:opacity .2s,transform .15s;white-space:nowrap;
+    }
+    .btn-primary:hover{opacity:0.85;color:#fff;transform:translateY(-1px);}
+    .btn-outline{
+      border:1px solid var(--border);color:var(--text);
+      padding:0.7rem 1.6rem;border-radius:8px;
+      font-size:var(--fs-sm);
+      transition:border-color .2s,transform .15s;white-space:nowrap;
+    }
+    .btn-outline:hover{border-color:var(--accent2);color:#fff;transform:translateY(-1px);}
+    .scroll-hint{
+      margin-top:var(--sp-md);
+      font-size:var(--fs-xs);color:var(--muted);font-family:monospace;
+    }
 
-/* ── SKILLS ── */
-#skills{background:var(--bg2);}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:1.25rem;}
-.skill-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);
-  padding:1.6rem;transition:.3s;backdrop-filter:blur(10px);}
-.skill-card:hover{border-color:rgba(0,255,209,0.3);transform:translateY(-4px);
-  box-shadow:0 12px 40px rgba(0,255,209,0.06);}
-.sk-head{display:flex;align-items:center;gap:.75rem;margin-bottom:1.2rem;}
-.sk-icon{font-size:1.5rem;}
-.sk-title{font-weight:700;font-size:.9rem;color:#fff;}
-.sk-chips{display:flex;flex-wrap:wrap;gap:.4rem;}
-.chip{padding:.22rem .65rem;border-radius:5px;font-size:.73rem;font-weight:500;}
-.c-teal{background:rgba(0,255,209,0.08);color:var(--teal);border:1px solid rgba(0,255,209,0.2);}
-.c-blue{background:rgba(79,142,247,0.08);color:var(--blue);border:1px solid rgba(79,142,247,0.2);}
-.c-purple{background:rgba(168,85,247,0.08);color:var(--purple);border:1px solid rgba(168,85,247,0.2);}
-.c-gold{background:rgba(245,158,11,0.08);color:var(--gold);border:1px solid rgba(245,158,11,0.2);}
-.c-green{background:rgba(16,185,129,0.08);color:var(--green);border:1px solid rgba(16,185,129,0.2);}
-.c-red{background:rgba(244,63,94,0.08);color:var(--red);border:1px solid rgba(244,63,94,0.2);}
+    /* ── SECTIONS ────────────────────────────────────────────── */
+    section{padding:var(--sp-xl) clamp(1rem,5vw,2.5rem);}
+    .section-inner{max-width:min(1100px,100%);margin:0 auto;}
+    .section-tag{
+      font-family:monospace;font-size:var(--fs-xs);
+      color:var(--accent2);margin-bottom:0.4rem;
+    }
+    .section-title{
+      font-size:var(--fs-xl);font-weight:700;
+      margin-bottom:clamp(1.5rem,3vw,2.5rem);
+      line-height:1.2;
+    }
+    .section-title span{color:var(--accent2);}
 
-/* ── EXPERIENCE ── */
-#experience{background:var(--bg);}
-.exp-timeline{position:relative;padding-left:2.5rem;}
-.exp-timeline::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;
-  width:2px;background:linear-gradient(to bottom,var(--teal),var(--blue),transparent);}
-.exp-item{position:relative;margin-bottom:2rem;opacity:0;transform:translateX(-16px);transition:.5s;}
-.exp-item.vis{opacity:1;transform:translateX(0);}
-.exp-dot{position:absolute;left:-2.1rem;top:.5rem;width:14px;height:14px;
-  border-radius:50%;background:var(--bg);border:2px solid var(--teal);
-  box-shadow:0 0 12px rgba(0,255,209,0.4);}
-.exp-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);
-  padding:1.5rem;transition:.3s;backdrop-filter:blur(10px);}
-.exp-card:hover{border-color:rgba(0,255,209,0.25);box-shadow:0 8px 32px rgba(0,255,209,0.05);}
-.exp-top{display:flex;justify-content:space-between;align-items:flex-start;
-  flex-wrap:wrap;gap:.5rem;margin-bottom:.35rem;}
-.exp-role{font-weight:700;font-size:1rem;color:#fff;}
-.exp-date{font-family:'Fira Code',monospace;font-size:.75rem;color:var(--teal);
-  background:rgba(0,255,209,0.06);padding:.2rem .7rem;border-radius:4px;white-space:nowrap;}
-.exp-company{color:var(--blue);font-weight:600;font-size:.88rem;margin-bottom:.5rem;}
-.exp-desc{color:var(--muted);font-size:.85rem;line-height:1.7;}
+    /* ── ABOUT ───────────────────────────────────────────────── */
+    #about{background:var(--bg2);}
+    .about-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));
+      gap:clamp(1.5rem,4vw,3rem);align-items:start;
+    }
+    .about-text p{
+      color:var(--muted);margin-bottom:0.9rem;font-size:var(--fs-base);
+    }
+    .about-text p strong{color:var(--text);}
+    .tag-cloud{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem;}
+    .tag{
+      background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);
+      color:var(--accent2);font-size:var(--fs-xs);
+      padding:0.25rem 0.7rem;border-radius:999px;
+    }
+    .profile-card{
+      background:var(--card);border:1px solid var(--border);
+      border-radius:14px;padding:clamp(1rem,3vw,1.6rem);
+    }
+    .profile-row{
+      display:flex;gap:0.8rem;padding:0.6rem 0;
+      border-bottom:1px solid var(--border);font-size:var(--fs-sm);
+      align-items:flex-start;
+    }
+    .profile-row:last-child{border-bottom:none;}
+    .profile-icon{width:26px;text-align:center;flex-shrink:0;margin-top:1px;}
+    .profile-key{color:var(--muted);min-width:85px;flex-shrink:0;}
+    .profile-val{color:var(--text);word-break:break-word;}
 
-/* ── ROLES ── */
-#roles{background:var(--bg2);}
-.roles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(500px,1fr));gap:1.2rem;}
-.role-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);
-  padding:1.5rem;transition:.4s;opacity:0;transform:translateY(20px);backdrop-filter:blur(10px);}
-.role-card.vis{opacity:1;transform:translateY(0);}
-.role-card:hover{border-color:rgba(0,255,209,0.25);box-shadow:0 8px 32px rgba(0,255,209,0.05);}
-.role-head{display:flex;gap:.8rem;align-items:flex-start;margin-bottom:.75rem;}
-.role-icon{font-size:1.4rem;flex-shrink:0;margin-top:.05rem;}
-.role-name{color:var(--teal);font-weight:700;font-size:.9rem;}
-.role-body{color:var(--muted);font-size:.84rem;line-height:1.75;}
+    /* ── SKILLS ─────────────────────────────────────────────── */
+    #skills{background:var(--bg);}
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));
+      gap:1.2rem;
+    }
+    .skill-card{
+      background:var(--card);border:1px solid var(--border);
+      border-radius:12px;padding:1.2rem;
+      transition:border-color .2s;
+    }
+    .skill-card:hover{border-color:rgba(59,130,246,0.35);}
+    .skill-card-title{
+      display:flex;align-items:center;gap:0.5rem;
+      font-size:var(--fs-sm);font-weight:600;margin-bottom:0.9rem;
+    }
+    .skill-tags{display:flex;flex-wrap:wrap;gap:0.35rem;}
+    .skill-tag{
+      background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.15);
+      color:var(--muted);font-size:var(--fs-xs);
+      padding:0.18rem 0.5rem;border-radius:6px;
+    }
 
-/* ── ACHIEVEMENTS ── */
-#achievements{background:var(--bg);}
-.ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;}
-.ach-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);
-  padding:1.6rem;transition:.4s;opacity:0;transform:translateY(20px);
-  backdrop-filter:blur(10px);position:relative;overflow:hidden;}
-.ach-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(to right,var(--teal),var(--blue));}
-.ach-card.vis{opacity:1;transform:translateY(0);}
-.ach-card:hover{border-color:rgba(0,255,209,0.25);transform:translateY(-5px);
-  box-shadow:0 16px 48px rgba(0,255,209,0.08);}
-.ach-num{font-family:'Fira Code',monospace;font-size:3rem;font-weight:700;
-  position:absolute;top:1rem;right:1.2rem;
-  background:linear-gradient(135deg,rgba(0,255,209,0.08),transparent);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
-.ach-icon{font-size:1.8rem;margin-bottom:.75rem;}
-.ach-body{color:var(--muted);font-size:.86rem;line-height:1.75;}
-.ach-body strong{color:#fff;}
-.ach-highlight{display:inline-block;margin-top:.75rem;font-family:'Fira Code',monospace;
-  font-size:.82rem;color:var(--teal);background:rgba(0,255,209,0.06);
-  padding:.2rem .7rem;border-radius:4px;}
+    /* ── EXPERIENCE ─────────────────────────────────────────── */
+    #experience{background:var(--bg2);}
+    .timeline{
+      position:relative;
+      padding-left:clamp(1.5rem,4vw,2.5rem);
+    }
+    .timeline::before{
+      content:'';position:absolute;left:0;top:0;bottom:0;
+      width:2px;background:var(--border);border-radius:2px;
+    }
+    .timeline-item{
+      position:relative;
+      margin-bottom:clamp(1.5rem,3vw,2.5rem);
+      padding-left:clamp(1rem,2vw,1.5rem);
+    }
+    .timeline-dot{
+      position:absolute;left:calc(-1 * clamp(1.5rem,4vw,2.5rem) - 5px);
+      top:5px;width:12px;height:12px;border-radius:50%;
+      background:var(--accent);border:2px solid var(--bg2);
+      flex-shrink:0;
+    }
+    .timeline-header{
+      display:flex;flex-wrap:wrap;align-items:baseline;
+      gap:0.4rem 0.8rem;margin-bottom:0.25rem;
+    }
+    .timeline-role{font-weight:700;font-size:var(--fs-md);color:var(--text);}
+    .timeline-period{font-size:var(--fs-xs);color:var(--muted);font-family:monospace;}
+    .timeline-company{font-size:var(--fs-sm);color:var(--accent2);margin-bottom:0.4rem;}
+    .timeline-desc{font-size:var(--fs-sm);color:var(--muted);line-height:1.65;}
 
-/* ── NON-TECH SKILLS ── */
-#softskills{background:var(--bg2);}
-.soft-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;}
-.soft-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);
-  padding:1.4rem;transition:.3s;text-align:center;}
-.soft-card:hover{border-color:rgba(79,142,247,0.3);transform:translateY(-3px);}
-.soft-icon{font-size:2rem;margin-bottom:.75rem;}
-.soft-title{color:#fff;font-weight:700;font-size:.9rem;margin-bottom:.4rem;}
-.soft-body{color:var(--muted);font-size:.8rem;line-height:1.65;}
+    /* ── EXPERTISE ──────────────────────────────────────────── */
+    #roles{background:var(--bg);}
+    .expertise-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));
+      gap:1.2rem;
+    }
+    .expertise-card{
+      background:var(--card);border:1px solid var(--border);
+      border-radius:12px;padding:1.3rem;
+      transition:border-color .2s,transform .2s;
+    }
+    .expertise-card:hover{border-color:rgba(59,130,246,0.4);transform:translateY(-2px);}
+    .expertise-icon{font-size:1.5rem;margin-bottom:0.7rem;}
+    .expertise-title{font-weight:700;font-size:var(--fs-sm);margin-bottom:0.5rem;}
+    .expertise-desc{font-size:var(--fs-xs);color:var(--muted);line-height:1.65;}
 
-/* ── CERTS ── */
-#certs{background:var(--bg);}
-.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
-.cert-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);
-  padding:2rem;text-align:center;transition:.3s;backdrop-filter:blur(10px);}
-.cert-card:hover{border-color:rgba(245,158,11,0.35);transform:translateY(-4px);
-  box-shadow:0 12px 40px rgba(245,158,11,0.08);}
-.cert-badge{font-size:3.5rem;margin-bottom:1rem;}
-.cert-name{color:#fff;font-weight:700;font-size:1rem;margin-bottom:.3rem;}
-.cert-org{color:var(--gold);font-size:.83rem;font-weight:600;margin-bottom:.5rem;}
-.cert-date{font-family:'Fira Code',monospace;color:var(--muted);font-size:.75rem;}
+    /* ── ACHIEVEMENTS ───────────────────────────────────────── */
+    #achievements{background:var(--bg2);}
+    .wins-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));
+      gap:1.2rem;
+    }
+    .win-card{
+      background:var(--card);border:1px solid var(--border);
+      border-radius:12px;padding:1.3rem;
+      display:flex;flex-direction:column;gap:0.7rem;
+      transition:border-color .2s;
+    }
+    .win-card:hover{border-color:rgba(59,130,246,0.35);}
+    .win-num{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--accent2);}
+    .win-icon{font-size:1.3rem;}
+    .win-text{font-size:var(--fs-xs);color:var(--muted);line-height:1.6;}
+    .win-badge{
+      align-self:flex-start;
+      background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.25);
+      color:var(--green);font-size:var(--fs-xs);
+      padding:0.2rem 0.6rem;border-radius:6px;
+    }
 
-/* ── EDUCATION ── */
-#education{background:var(--bg2);}
-.edu-card{display:flex;align-items:center;gap:2rem;
-  background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);
-  padding:2.2rem;max-width:680px;backdrop-filter:blur(10px);}
-.edu-icon{font-size:4rem;flex-shrink:0;}
-.edu-degree{color:#fff;font-weight:700;font-size:1.1rem;margin-bottom:.3rem;}
-.edu-inst{color:var(--blue);font-weight:600;font-size:.92rem;margin-bottom:.3rem;}
-.edu-meta{color:var(--muted);font-size:.84rem;}
-.edu-badge{display:inline-block;margin-top:.6rem;background:rgba(0,255,209,0.06);
-  border:1px solid rgba(0,255,209,0.2);color:var(--teal);
-  padding:.22rem .75rem;border-radius:5px;font-family:'Fira Code',monospace;font-size:.78rem;}
+    /* ── CERTS ──────────────────────────────────────────────── */
+    #certs{background:var(--bg);}
+    .certs-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));
+      gap:1.2rem;
+    }
+    .cert-card{
+      background:var(--card);border:1px solid var(--border);
+      border-radius:12px;padding:1.3rem;
+      transition:border-color .2s;
+    }
+    .cert-card:hover{border-color:rgba(59,130,246,0.35);}
+    .cert-icon{font-size:1.7rem;margin-bottom:0.55rem;}
+    .cert-name{font-weight:700;font-size:var(--fs-sm);margin-bottom:0.2rem;}
+    .cert-issuer{font-size:var(--fs-xs);color:var(--accent2);margin-bottom:0.35rem;}
+    .cert-date{font-size:var(--fs-xs);color:var(--muted);}
 
-/* ── CONTACT ── */
-#contact{background:var(--bg);text-align:center;}
-.contact-tagline{color:var(--muted);font-size:1rem;max-width:520px;margin:.5rem auto 2.5rem;}
-.contact-grid{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;margin-bottom:3.5rem;}
-.c-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);
-  padding:1.2rem 1.8rem;display:flex;align-items:center;gap:.9rem;
-  text-decoration:none;transition:.3s;backdrop-filter:blur(10px);}
-.c-card:hover{border-color:rgba(0,255,209,0.3);transform:translateY(-3px);
-  box-shadow:0 8px 28px rgba(0,255,209,0.08);}
-.c-card-icon{font-size:1.4rem;}
-.c-card-text{color:var(--text);font-size:.88rem;font-weight:600;text-align:left;}
-.c-card-sub{color:var(--muted);font-size:.75rem;}
-.footer-line{border-top:1px solid var(--border);padding-top:2rem;
-  font-family:'Fira Code',monospace;color:var(--muted);font-size:.78rem;}
-.footer-line span{color:var(--teal);}
+    /* ── CONTACT ────────────────────────────────────────────── */
+    #contact{background:var(--bg2);text-align:center;}
+    .contact-intro{
+      color:var(--muted);max-width:min(540px,90%);
+      margin:0 auto var(--sp-md);font-size:var(--fs-base);
+    }
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr));
+      gap:1rem;max-width:min(800px,100%);margin:0 auto;
+    }
+    .contact-card{
+      background:var(--card);border:1px solid var(--border);
+      border-radius:12px;padding:1.1rem;
+      display:flex;flex-direction:column;gap:0.35rem;
+      transition:border-color .2s,transform .2s;text-align:left;
+    }
+    .contact-card:hover{border-color:rgba(59,130,246,0.4);transform:translateY(-2px);}
+    .contact-card-icon{font-size:1.3rem;}
+    .contact-card-label{font-size:var(--fs-xs);color:var(--muted);}
+    .contact-card-val{font-size:var(--fs-sm);color:var(--accent2);word-break:break-all;}
 
-/* ── BACK TO TOP ── */
-#btt{position:fixed;bottom:2rem;right:2rem;z-index:200;width:42px;height:42px;
-  background:linear-gradient(135deg,var(--teal),var(--blue));border:none;border-radius:50%;
-  cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;
-  opacity:0;transition:.3s;box-shadow:0 4px 20px rgba(0,255,209,0.3);}
-#btt.show{opacity:1;}
-#btt:hover{transform:translateY(-3px);}
+    /* ── FOOTER ─────────────────────────────────────────────── */
+    footer{
+      background:var(--bg);text-align:center;
+      padding:clamp(1rem,2vw,1.5rem);
+      font-size:var(--fs-xs);color:var(--muted);
+      border-top:1px solid var(--border);
+    }
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+    /* ── BACK TO TOP ────────────────────────────────────────── */
+    .back-top{
+      position:fixed;bottom:1.5rem;right:1.5rem;
+      background:var(--accent);color:#fff;border:none;
+      width:40px;height:40px;border-radius:50%;cursor:pointer;
+      font-size:1rem;display:flex;align-items:center;justify-content:center;
+      opacity:0;transition:opacity .3s,transform .2s;pointer-events:none;
+      box-shadow:0 4px 16px rgba(59,130,246,0.4);
+    }
+    .back-top.visible{opacity:1;pointer-events:auto;}
+    .back-top:hover{transform:scale(1.1);}
 
-/* ── RESPONSIVE ── */
-@media(max-width:900px){
-  .about-grid{grid-template-columns:1fr;}
-  .roles-grid{grid-template-columns:1fr;}
-  nav .nav-links{display:none;}
-  section{padding:5rem 5%;}
-  #hero{padding:0 5%;}
-  .hero-stats{gap:1.5rem;}
-  .edu-card{flex-direction:column;text-align:center;}
-}
-</style>
+    /* ── BREAKPOINT OVERRIDES ───────────────────────────────── */
+    @media(max-width:900px){
+      .nav-links{display:none;}
+      .nav-toggle{display:flex;}
+    }
+    @media(max-width:480px){
+      .hero-btns .btn-outline:last-child{display:none;} /* hide 3rd btn on tiny screens */
+      .counters{gap:1.2rem;}
+      .counter-label{font-size:0.7rem;}
+    }
+  </style>
 </head>
 <body>
 
-<canvas id="canvas"></canvas>
-
-<!-- NAV -->
+<!-- ══ NAV ══════════════════════════════════════════════════ -->
 <nav>
-  <span class="logo">&lt; NishithPadh /&gt;</span>
+  <div class="nav-logo">&lt; NishithPadh /&gt;</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -276,532 +403,455 @@ section{padding:7rem 8%;position:relative;z-index:1;}
     <li><a href="#certs">Certs</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="mailto:nishithpadh@gmail.com" class="nav-hire">Hire Me →</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<!-- mobile drawer -->
+<ul class="nav-drawer" id="navDrawer">
+  <li><a href="#about">About</a></li>
+  <li><a href="#skills">Skills</a></li>
+  <li><a href="#experience">Experience</a></li>
+  <li><a href="#roles">Expertise</a></li>
+  <li><a href="#achievements">Wins</a></li>
+  <li><a href="#certs">Certs</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-wrap">
-    <div class="hero-badge"><span class="ping"></span> Available for Senior QA &amp; AI Testing Roles</div>
-    <h1 class="hero-name">Nishith Padh</h1>
-    <p class="hero-role">Senior Software Test Lead &nbsp;•&nbsp; <em>QA Automation &amp; AI Testing Expert</em> &nbsp;•&nbsp; 11.6 Years</p>
-    <p class="hero-desc">Building quality-first test ecosystems — from Playwright agentic automation and ISO 20022 banking payments testing to LLM hallucination detection and RAG pipeline validation. Quality is not a checkpoint; it's a culture.</p>
-    <div class="hero-stats">
-      <div class="stat-box"><span class="stat-num" data-target="11.6">0</span><span class="stat-label">Years Experience</span></div>
-      <div class="stat-sep"></div>
-      <div class="stat-box"><span class="stat-num" data-target="6">0</span><span class="stat-label">Companies</span></div>
-      <div class="stat-sep"></div>
-      <div class="stat-box"><span class="stat-num" data-target="25">0</span><span class="stat-label">% CI/CD Uplift</span></div>
-      <div class="stat-sep"></div>
-      <div class="stat-box"><span class="stat-num" data-target="8">0</span><span class="stat-label">% Defect Detection ↑</span></div>
+<!-- ══ HERO ══════════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-badge">&#x2022; Available for Senior QA &amp; AI Testing Roles</div>
+  <h1>Nishith Padh</h1>
+  <p class="hero-tagline">
+    Senior Software Test Lead &nbsp;•&nbsp; <em>QA Automation &amp; AI Testing Expert</em> &nbsp;•&nbsp; 11.7 Years
+  </p>
+  <p class="hero-sub">
+    Building quality-first test ecosystems — from Playwright agentic automation and ISO&nbsp;20022 banking payments testing
+    to LLM hallucination detection and RAG pipeline validation.<br>
+    <em>Quality is not a checkpoint; it's a culture.</em>
+  </p>
+
+  <div class="counters">
+    <div class="counter-box">
+      <div class="counter-val" data-target="11.7" data-suffix="+" data-decimal="1">0</div>
+      <div class="counter-label">Years Experience</div>
     </div>
-    <div class="hero-btns">
-      <a href="#experience" class="btn-g">Explore My Journey</a>
-      <a href="http://www.linkedin.com/in/nishith-padh-607466a0" target="_blank" class="btn-o">LinkedIn Profile ↗</a>
-      <a href="mailto:nishithpadh@gmail.com" class="btn-o">Get In Touch</a>
+    <div class="counter-box">
+      <div class="counter-val" data-target="8" data-suffix="+" data-decimal="0">0</div>
+      <div class="counter-label">Years into Automation</div>
+    </div>
+    <div class="counter-box">
+      <div class="counter-val" data-target="25" data-suffix="%" data-decimal="0">0</div>
+      <div class="counter-label">CI/CD Uplift</div>
+    </div>
+    <div class="counter-box">
+      <div class="counter-val" data-target="8" data-suffix="%" data-decimal="0">0</div>
+      <div class="counter-label">Defect Detection ↑</div>
     </div>
   </div>
-  <div class="scroll-ind"><span class="scroll-text">// scroll to explore</span><div class="scroll-bar"></div></div>
+
+  <div class="hero-btns">
+    <a class="btn-primary" href="#experience">Explore My Journey</a>
+    <a class="btn-outline" href="http://www.linkedin.com/in/nishith-padh-607466a0" target="_blank">LinkedIn Profile ↗</a>
+    <a class="btn-outline" href="mailto:nishithpadh@gmail.com">Get In Touch</a>
+  </div>
+
+  <p class="scroll-hint">// scroll to explore</p>
 </section>
 
-<!-- ABOUT -->
+<!-- ══ ABOUT ══════════════════════════════════════════════════ -->
 <section id="about">
-  <span class="sec-eyebrow">01 // about_me</span>
-  <h2 class="sec-title">The QA Engineer Who <span>Tests Everything</span></h2>
-  <div class="sec-bar"></div>
-  <div class="about-grid">
-    <div class="about-body">
-      <p>I am a <strong>Senior Software Test Lead</strong> with 11.6 years of experience spanning QA strategy, automation engineering, AI testing, and team leadership across fintech, SaaS, and product-based organisations.</p>
-      <p>Currently leading quality at <strong>HCL Technologies</strong>, I drive test automation for a US-based banking product — building Playwright-based agentic test frameworks, ISO 20022 payment message validation, and performance engineering with JMeter.</p>
-      <p>My specialisation is <strong>AI-augmented QA</strong> — testing LLM applications for hallucination, validating RAG pipelines for accuracy, and applying Prompt Engineering to deterministic model evaluation.</p>
-      <p>I believe quality is a <strong>culture, not a checkpoint</strong> — and I build test ecosystems that shift quality left, empower teams, and deliver with confidence at every sprint boundary.</p>
-      <div class="about-tags">
-        <span class="a-tag">Playwright</span><span class="a-tag">LLM Testing</span><span class="a-tag">ISO 20022</span>
-        <span class="a-tag">JMeter</span><span class="a-tag">RAG Validation</span><span class="a-tag">CI/CD</span>
-        <span class="a-tag">Team Leadership</span><span class="a-tag">Test Strategy</span><span class="a-tag">GenAI</span>
-        <span class="a-tag">Power BI</span><span class="a-tag">MongoDB</span><span class="a-tag">MySQL</span>
+  <div class="section-inner">
+    <p class="section-tag">01 // about_me</p>
+    <h2 class="section-title">The QA Engineer Who <span>Tests Everything</span></h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I am a <strong>Senior Software Test Lead</strong> with 11.7 years of experience spanning QA strategy, automation engineering, AI testing, and team leadership across fintech, SaaS, and product-based organisations.</p>
+        <p>Currently leading quality at <strong>HCL Technologies</strong>, I drive test automation for a US-based banking product — building Playwright-based agentic test frameworks, ISO 20022 payment message validation, and performance engineering with JMeter.</p>
+        <p>My specialisation is <strong>AI-augmented QA</strong> — testing LLM applications for hallucination, validating RAG pipelines for accuracy, and applying Prompt Engineering to deterministic model evaluation.</p>
+        <p>I believe quality is a <strong>culture, not a checkpoint</strong> — and I build test ecosystems that shift quality left, empower teams, and deliver with confidence at every sprint boundary.</p>
+        <div class="tag-cloud">
+          <span class="tag">Playwright</span><span class="tag">LLM Testing</span><span class="tag">ISO 20022</span>
+          <span class="tag">JMeter</span><span class="tag">RAG Validation</span><span class="tag">CI/CD</span>
+          <span class="tag">Team Leadership</span><span class="tag">Test Strategy</span><span class="tag">GenAI</span>
+          <span class="tag">Power BI</span><span class="tag">MongoDB</span><span class="tag">MySQL</span>
+        </div>
       </div>
-    </div>
-    <div class="about-card">
-      <div class="about-card-title">// profile_info</div>
-      <div class="info-row"><span class="info-icon">📛</span><span class="info-label">Full Name</span><span class="info-val">Nishith Padh</span></div>
-      <div class="info-row"><span class="info-icon">💼</span><span class="info-label">Role</span><span class="info-val">Senior Software Test Lead</span></div>
-      <div class="info-row"><span class="info-icon">🏢</span><span class="info-label">Current</span><span class="info-val">HCL Technologies</span></div>
-      <div class="info-row"><span class="info-icon">📅</span><span class="info-label">Experience</span><span class="info-val">11.6 Years</span></div>
-      <div class="info-row"><span class="info-icon">📍</span><span class="info-label">Location</span><span class="info-val">Nagpur, Maharashtra</span></div>
-      <div class="info-row"><span class="info-icon">📧</span><span class="info-label">Email</span><span class="info-val"><a href="mailto:nishithpadh@gmail.com">nishithpadh@gmail.com</a></span></div>
-      <div class="info-row"><span class="info-icon">📱</span><span class="info-label">Phone</span><span class="info-val">+91 9167458785</span></div>
-      <div class="info-row"><span class="info-icon">🔗</span><span class="info-label">LinkedIn</span><span class="info-val"><a href="http://www.linkedin.com/in/nishith-padh-607466a0" target="_blank">LinkedIn Profile ↗</a></span></div>
-      <div class="info-row"><span class="info-icon">🎓</span><span class="info-label">Cert</span><span class="info-val">ISTQB – CTFL</span></div>
+      <div class="profile-card">
+        <div class="profile-row"><span class="profile-icon">📛</span><span class="profile-key">Full Name</span><span class="profile-val">Nishith Padh</span></div>
+        <div class="profile-row"><span class="profile-icon">💼</span><span class="profile-key">Role</span><span class="profile-val">Senior Software Test Lead</span></div>
+        <div class="profile-row"><span class="profile-icon">🏢</span><span class="profile-key">Current</span><span class="profile-val">HCL Technologies</span></div>
+        <div class="profile-row"><span class="profile-icon">📅</span><span class="profile-key">Experience</span><span class="profile-val">11.7 Years</span></div>
+        <div class="profile-row"><span class="profile-icon">🤖</span><span class="profile-key">Automation</span><span class="profile-val">8+ Years</span></div>
+        <div class="profile-row"><span class="profile-icon">📍</span><span class="profile-key">Location</span><span class="profile-val">Nagpur, Maharashtra</span></div>
+        <div class="profile-row"><span class="profile-icon">📧</span><span class="profile-key">Email</span><span class="profile-val"><a href="mailto:nishithpadh@gmail.com">nishithpadh@gmail.com</a></span></div>
+        <div class="profile-row"><span class="profile-icon">📱</span><span class="profile-key">Phone</span><span class="profile-val">+91 9167458785</span></div>
+        <div class="profile-row"><span class="profile-icon">🔗</span><span class="profile-key">LinkedIn</span><span class="profile-val"><a href="http://www.linkedin.com/in/nishith-padh-607466a0" target="_blank">LinkedIn Profile ↗</a></span></div>
+        <div class="profile-row"><span class="profile-icon">🎓</span><span class="profile-key">Cert</span><span class="profile-val">ISTQB – CTFL</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
+<!-- ══ SKILLS ══════════════════════════════════════════════════ -->
 <section id="skills">
-  <span class="sec-eyebrow">02 // technical_stack</span>
-  <h2 class="sec-title">Tools &amp; <span>Technologies</span></h2>
-  <div class="sec-bar"></div>
-  <div class="skills-grid">
-
-    <div class="skill-card">
-      <div class="sk-head"><span class="sk-icon">🎭</span><span class="sk-title">Automation Frameworks</span></div>
-      <div class="sk-chips">
-        <span class="chip c-teal">Playwright (Agentic)</span>
-        <span class="chip c-teal">Selenium (Self-Healing)</span>
-        <span class="chip c-teal">Rest Assured</span>
-        <span class="chip c-teal">Postman</span>
-        <span class="chip c-teal">ROBOT Framework</span>
-        <span class="chip c-teal">Behave-Cucumber</span>
-        <span class="chip c-teal">TestNG</span>
-        <span class="chip c-teal">Pytest</span>
-        <span class="chip c-blue">Cypress</span>
-        <span class="chip c-blue">CodeceptJS</span>
-        <span class="chip c-teal">Appium</span>
+  <div class="section-inner">
+    <p class="section-tag">02 // technical_stack</p>
+    <h2 class="section-title">Tools &amp; <span>Technologies</span></h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-title">🎭 Automation Frameworks</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Playwright (Agentic)</span><span class="skill-tag">Selenium (Self-Healing)</span>
+          <span class="skill-tag">Rest Assured</span><span class="skill-tag">Postman</span>
+          <span class="skill-tag">ROBOT Framework</span><span class="skill-tag">Behave-Cucumber</span>
+          <span class="skill-tag">TestNG</span><span class="skill-tag">Pytest</span>
+          <span class="skill-tag">Cypress</span><span class="skill-tag">CodeceptJS</span><span class="skill-tag">Appium</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">🤖 AI / GenAI Testing</div>
+        <div class="skill-tags">
+          <span class="skill-tag">LLM Testing</span><span class="skill-tag">RAG Pipeline Validation</span>
+          <span class="skill-tag">Prompt Engineering</span><span class="skill-tag">Hallucination Detection</span>
+          <span class="skill-tag">AI Agent Testing</span><span class="skill-tag">make.com</span>
+          <span class="skill-tag">n8n</span><span class="skill-tag">Claude</span>
+          <span class="skill-tag">Replit</span><span class="skill-tag">Lovable.dev</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">⚙️ CI/CD &amp; DevOps</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Jenkins</span><span class="skill-tag">GitHub Actions</span>
+          <span class="skill-tag">Docker</span><span class="skill-tag">AWS (EC2, S3, IAM)</span>
+          <span class="skill-tag">Kubernetes</span><span class="skill-tag">Ansible</span>
+          <span class="skill-tag">Nagios</span><span class="skill-tag">Centreon</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">⚡ Performance &amp; Monitoring</div>
+        <div class="skill-tags">
+          <span class="skill-tag">JMeter</span><span class="skill-tag">Grafana</span>
+          <span class="skill-tag">Nagios</span><span class="skill-tag">Centreon</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">📊 Data &amp; Analytics</div>
+        <div class="skill-tags">
+          <span class="skill-tag">MySQL</span><span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Apache Kafka</span><span class="skill-tag">Apache Trino</span>
+          <span class="skill-tag">MINIO</span><span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Tableau</span><span class="skill-tag">Data Modelling</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">💻 Languages &amp; Standards</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Java</span><span class="skill-tag">Python</span>
+          <span class="skill-tag">JavaScript</span><span class="skill-tag">XML (XPath, XSD)</span>
+          <span class="skill-tag">JSON</span><span class="skill-tag">REST</span>
+          <span class="skill-tag">SOAP</span><span class="skill-tag">ISO 20022 (pacs, pain)</span>
+          <span class="skill-tag">Linux / Shell</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">🛠️ QA Management Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Jira</span><span class="skill-tag">Zephyr Scale</span>
+          <span class="skill-tag">Asana</span><span class="skill-tag">Empower</span>
+          <span class="skill-tag">Mentis Bug Tracker</span><span class="skill-tag">ZingHR</span>
+        </div>
       </div>
     </div>
-
-    <div class="skill-card">
-      <div class="sk-head"><span class="sk-icon">🤖</span><span class="sk-title">AI / GenAI Testing</span></div>
-      <div class="sk-chips">
-        <span class="chip c-gold">LLM Testing</span>
-        <span class="chip c-gold">RAG Pipeline Validation</span>
-        <span class="chip c-gold">Prompt Engineering</span>
-        <span class="chip c-gold">Hallucination Detection</span>
-        <span class="chip c-gold">AI Agent Testing</span>
-        <span class="chip c-gold">make.com</span>
-        <span class="chip c-gold">n8n</span>
-        <span class="chip c-gold">Claude</span>
-        <span class="chip c-gold">Replit</span>
-        <span class="chip c-gold">Lovable.dev</span>
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <div class="sk-head"><span class="sk-icon">⚙️</span><span class="sk-title">CI/CD &amp; DevOps</span></div>
-      <div class="sk-chips">
-        <span class="chip c-green">Jenkins</span>
-        <span class="chip c-green">GitHub Actions</span>
-        <span class="chip c-green">Docker</span>
-        <span class="chip c-green">AWS (EC2, S3, IAM)</span>
-        <span class="chip c-blue">Kubernetes</span>
-        <span class="chip c-blue">Ansible</span>
-        <span class="chip c-green">Nagios</span>
-        <span class="chip c-green">Centreon</span>
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <div class="sk-head"><span class="sk-icon">⚡</span><span class="sk-title">Performance &amp; Monitoring</span></div>
-      <div class="sk-chips">
-        <span class="chip c-red">JMeter</span>
-        <span class="chip c-red">Grafana</span>
-        <span class="chip c-blue">Nagios</span>
-        <span class="chip c-blue">Centreon</span>
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <div class="sk-head"><span class="sk-icon">📊</span><span class="sk-title">Data &amp; Analytics</span></div>
-      <div class="sk-chips">
-        <span class="chip c-teal">MySQL</span>
-        <span class="chip c-teal">MongoDB</span>
-        <span class="chip c-blue">Apache Kafka</span>
-        <span class="chip c-blue">Apache Trino</span>
-        <span class="chip c-blue">MINIO</span>
-        <span class="chip c-purple">Power BI</span>
-        <span class="chip c-purple">Tableau</span>
-        <span class="chip c-teal">Data Modelling</span>
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <div class="sk-head"><span class="sk-icon">💻</span><span class="sk-title">Languages &amp; Standards</span></div>
-      <div class="sk-chips">
-        <span class="chip c-teal">Java</span>
-        <span class="chip c-teal">Python</span>
-        <span class="chip c-teal">JavaScript</span>
-        <span class="chip c-green">XML (XPath, XSD)</span>
-        <span class="chip c-green">JSON</span>
-        <span class="chip c-green">REST</span>
-        <span class="chip c-green">SOAP</span>
-        <span class="chip c-gold">ISO 20022 (pacs, pain)</span>
-        <span class="chip c-blue">Linux / Shell</span>
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <div class="sk-head"><span class="sk-icon">🛠️</span><span class="sk-title">QA Management Tools</span></div>
-      <div class="sk-chips">
-        <span class="chip c-purple">Jira</span>
-        <span class="chip c-purple">Zephyr Scale</span>
-        <span class="chip c-purple">Asana</span>
-        <span class="chip c-purple">Empower</span>
-        <span class="chip c-purple">Mentis Bug Tracker</span>
-        <span class="chip c-purple">ZingHR</span>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- EXPERIENCE -->
+<!-- ══ EXPERIENCE ══════════════════════════════════════════════ -->
 <section id="experience">
-  <span class="sec-eyebrow">03 // career_journey</span>
-  <h2 class="sec-title">11.6 Years of <span>Impact</span></h2>
-  <div class="sec-bar"></div>
-  <div class="exp-timeline">
-
-    <div class="exp-item">
-      <div class="exp-dot"></div>
-      <div class="exp-card">
-        <div class="exp-top"><span class="exp-role">Senior Software Test Lead</span><span class="exp-date">Nov 2023 – Present</span></div>
-        <div class="exp-company">HCL Technologies</div>
-        <div class="exp-desc">Leading QA automation for a US-based banking product (BillGO). Built Playwright agentic test frameworks, ISO 20022 payment message validation (pacs.008, pain.001), Rest Assured BDD API automation, and GitHub Actions CI/CD pipelines.</div>
+  <div class="section-inner">
+    <p class="section-tag">03 // career_journey</p>
+    <h2 class="section-title">11.7 Years of <span>Impact</span></h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <span class="timeline-role">Senior Software Test Lead</span>
+          <span class="timeline-period">Nov 2023 – Present</span>
+        </div>
+        <div class="timeline-company">HCL Technologies</div>
+        <p class="timeline-desc">Leading QA automation for a US-based banking and payments product. Built Playwright agentic test frameworks, ISO 20022 payment message validation (pacs.008, pain.001), Rest Assured BDD API automation, and GitHub Actions CI/CD pipelines.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <span class="timeline-role">Sr Quality Engineer II (Contract)</span>
+          <span class="timeline-period">Mar 2023 – Oct 2023</span>
+        </div>
+        <div class="timeline-company">Finov8 LLC</div>
+        <p class="timeline-desc">Delivered UI and API test automation for a fintech payments product; established Playwright-based automation framework foundations and CI/CD integrations.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <span class="timeline-role">Associate Technical Architect – Testing</span>
+          <span class="timeline-period">Sep 2022 – Jan 2023</span>
+        </div>
+        <div class="timeline-company">Quantiphi Solutions Analytics Pvt Ltd</div>
+        <p class="timeline-desc">Architected test strategies for multiple data analytics projects. Led API testing with Postman, AWS test environment provisioning, SQL data integrity validation, and end-to-end test traceability using Zephyr Scale.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <span class="timeline-role">Software Testing Lead</span>
+          <span class="timeline-period">Oct 2021 – Sep 2022</span>
+        </div>
+        <div class="timeline-company">Engagely.ai (Product)</div>
+        <p class="timeline-desc">Led QA for an AI-powered conversational product. Built Selenium + Python automation suites, managed Jenkins declarative CI/CD pipelines, mentored junior QA team members, and facilitated Agile sprint ceremonies.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <span class="timeline-role">Software QA Executive</span>
+          <span class="timeline-period">Feb 2020 – Oct 2021</span>
+        </div>
+        <div class="timeline-company">Cnergyis Infotech India Pvt Ltd (Product)</div>
+        <p class="timeline-desc">Built mobile automation (Appium + Selenium + Python) for Android emulators and real devices; developed ROBOT Framework / Pytest web automation; conducted JMeter load and API performance testing.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <span class="timeline-role">Software Quality Analyst</span>
+          <span class="timeline-period">Aug 2014 – Feb 2020</span>
+        </div>
+        <div class="timeline-company">Unotech Software Pvt Ltd</div>
+        <p class="timeline-desc">End-to-end QA for product and service-based projects. Selenium + Java automation, infrastructure management, Ansible-based Big Data tooling, client interaction, and full defect lifecycle management.</p>
       </div>
     </div>
-
-    <div class="exp-item">
-      <div class="exp-dot"></div>
-      <div class="exp-card">
-        <div class="exp-top"><span class="exp-role">Sr Quality Engineer II (Contract)</span><span class="exp-date">Mar 2023 – Oct 2023</span></div>
-        <div class="exp-company">Finov8 LLC</div>
-        <div class="exp-desc">Delivered UI and API test automation for the BillGO fintech product; established Playwright-based automation framework foundations and CI/CD integrations.</div>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-dot"></div>
-      <div class="exp-card">
-        <div class="exp-top"><span class="exp-role">Associate Technical Architect – Testing</span><span class="exp-date">Sep 2022 – Jan 2023</span></div>
-        <div class="exp-company">Quantiphi Solutions Analytics Pvt Ltd</div>
-        <div class="exp-desc">Architected test strategies for multiple data analytics projects. Led API testing with Postman, AWS test environment provisioning, SQL data integrity validation, and end-to-end test traceability using Zephyr Scale.</div>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-dot"></div>
-      <div class="exp-card">
-        <div class="exp-top"><span class="exp-role">Software Testing Lead</span><span class="exp-date">Oct 2021 – Sep 2022</span></div>
-        <div class="exp-company">Engagely.ai (Product)</div>
-        <div class="exp-desc">Led QA for an AI-powered conversational product. Built Selenium + Python automation suites, managed Jenkins declarative CI/CD pipelines, mentored junior QA team members, and facilitated Agile sprint ceremonies.</div>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-dot"></div>
-      <div class="exp-card">
-        <div class="exp-top"><span class="exp-role">Software QA Executive</span><span class="exp-date">Feb 2020 – Oct 2021</span></div>
-        <div class="exp-company">Cnergyis Infotech India Pvt Ltd (Product)</div>
-        <div class="exp-desc">Built mobile automation (Appium + Selenium + Python) for Android emulators and real devices; developed ROBOT Framework / Pytest web automation; conducted JMeter load and API performance testing.</div>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-dot"></div>
-      <div class="exp-card">
-        <div class="exp-top"><span class="exp-role">Software Quality Analyst</span><span class="exp-date">Aug 2014 – Feb 2020</span></div>
-        <div class="exp-company">Unotech Software Pvt Ltd</div>
-        <div class="exp-desc">End-to-end QA for product and service-based projects. Selenium + Java automation, infrastructure management, Ansible-based Big Data tooling, client interaction, and full defect lifecycle management.</div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- ROLES & RESPONSIBILITIES -->
+<!-- ══ EXPERTISE ══════════════════════════════════════════════ -->
 <section id="roles">
-  <span class="sec-eyebrow">04 // expertise</span>
-  <h2 class="sec-title">What I <span>Do Best</span></h2>
-  <div class="sec-bar"></div>
-  <div class="roles-grid">
-
-    <div class="role-card">
-      <div class="role-head"><span class="role-icon">🎭</span><div><div class="role-name">Playwright – Agentic &amp; UI Testing</div></div></div>
-      <p class="role-body">Designed and maintained Playwright-based UI (web + mobile) and API automation frameworks using Page Object Model; extended Playwright as backbone for AI agent testing — automated multi-step user journeys via agent-driven browser control integrated with LLM prompts for dynamic scenario generation and self-adaptive test execution.</p>
+  <div class="section-inner">
+    <p class="section-tag">04 // expertise</p>
+    <h2 class="section-title">What I Do <span>Best</span></h2>
+    <div class="expertise-grid">
+      <div class="expertise-card">
+        <div class="expertise-icon">🎭</div>
+        <div class="expertise-title">Playwright – Agentic &amp; UI Testing</div>
+        <p class="expertise-desc">Designed and maintained Playwright-based UI (web + mobile) and API automation frameworks using Page Object Model; extended Playwright as backbone for AI agent testing — automated multi-step user journeys via agent-driven browser control integrated with LLM prompts for dynamic scenario generation and self-adaptive test execution.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">🔩</div>
+        <div class="expertise-title">Selenium – Agentic Automation</div>
+        <p class="expertise-desc">Built Selenium (Java &amp; Python) + TestNG / Pytest / Robot Framework suites with AI-assisted self-healing locator strategies and Python-based agentic orchestration for autonomous test execution; maintained Jenkins declarative pipelines and Appium-based Android mobile automation.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">✨</div>
+        <div class="expertise-title">AI-Driven Testing &amp; GenAI Usage</div>
+        <p class="expertise-desc">Integrated AI across QA workflows — used Claude, ChatGPT, and Replit for automated test case generation, edge-case discovery, and intelligent test data synthesis; built n8n and make.com automation workflows for AI-powered QA reporting, defect triaging, and stakeholder dashboards.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">🧠</div>
+        <div class="expertise-title">LLM &amp; RAG Pipeline Testing</div>
+        <p class="expertise-desc">Tested LLM applications for accuracy, hallucination detection, context coherence, and output consistency; validated RAG pipelines for chunk retrieval accuracy, context relevance, and answer faithfulness; applied Prompt Engineering to craft deterministic test prompts for adversarial and edge-case model evaluation.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">💳</div>
+        <div class="expertise-title">API, XML &amp; ISO 20022 Payments Testing</div>
+        <p class="expertise-desc">Authored Rest Assured (BDD / Cucumber) API suites; validated REST / SOAP APIs via Postman with XPath and XSD schema assertions; designed ISO 20022 compliance tests (pacs.008, pain.001) — validated financial XML schemas for field accuracy, mandatory elements, and end-to-end payment flow automation.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">⚡</div>
+        <div class="expertise-title">JMeter – Performance Testing</div>
+        <p class="expertise-desc">Designed JMeter test plans with thread groups, ramp-up profiles, HTTP samplers, and assertions; executed load / stress / soak scenarios; analysed throughput, latency, and error rates via JMeter Dashboard and Grafana.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">📊</div>
+        <div class="expertise-title">Data Validation – SQL / MongoDB / Power BI</div>
+        <p class="expertise-desc">Built Power BI dashboards tracking defect density, test coverage, sprint velocity, and quality KPIs; validated data models via MySQL; queried MongoDB collections using automated pipelines for NoSQL schema compliance; performed data modelling verification across relational and document-based datastores.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">🏆</div>
+        <div class="expertise-title">Test Strategy, Management &amp; Leadership</div>
+        <p class="expertise-desc">Owned end-to-end test management: test strategy, test plans, RTM, resource planning, and sprint-level quality reporting to stakeholders; defined QA processes, automation standards, and coding best practices; led cross-functional defect triage, risk-based prioritisation, and go / no-go production decisions.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">👥</div>
+        <div class="expertise-title">Mentoring &amp; Team Development</div>
+        <p class="expertise-desc">Structured mentoring programmes for junior QA engineers covering automation, API testing, and CI/CD; conducted regular code reviews, pair-testing sessions, and knowledge-sharing workshops; achieved 8% increase in pre-production defect detection and 25% CI/CD pipeline pass rate improvement.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">🔄</div>
+        <div class="expertise-title">CI/CD &amp; DevOps</div>
+        <p class="expertise-desc">Configured GitHub Actions and Jenkins pipelines for test triggering and quality gates; ran Docker-based Selenium Grid environments; applied Kubernetes YAML manifests for parallel pod-based test execution; provisioned AWS EC2 / S3 for environment setup and artifact management.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">📡</div>
+        <div class="expertise-title">Kafka / Trino / MINIO (Working Knowledge – L1)</div>
+        <p class="expertise-desc">Consumed Kafka topic messages to verify event-driven API flows; used Apache Trino for cross-datastore query validation; verified MINIO object storage for test artifact integrity during pipeline runs.</p>
+      </div>
     </div>
-
-    <div class="role-card">
-      <div class="role-head"><span class="role-icon">🔩</span><div><div class="role-name">Selenium – Agentic Automation</div></div></div>
-      <p class="role-body">Built Selenium (Java &amp; Python) + TestNG / Pytest / Robot Framework suites with AI-assisted self-healing locator strategies and Python-based agentic orchestration for autonomous test execution; maintained Jenkins declarative pipelines and Appium-based Android mobile automation.</p>
-    </div>
-
-    <div class="role-card">
-      <div class="role-head"><span class="role-icon">✨</span><div><div class="role-name">AI-Driven Testing &amp; GenAI Usage</div></div></div>
-      <p class="role-body">Integrated AI across QA workflows — used Claude, ChatGPT, and Replit for automated test case generation, edge-case discovery, and intelligent test data synthesis; built n8n and make.com automation workflows for AI-powered QA reporting, defect triaging, and stakeholder dashboards.</p>
-    </div>
-
-    <div class="role-card">
-      <div class="role-head"><span class="role-icon">🧠</span><div><div class="role-name">LLM &amp; RAG Pipeline Testing</div></div></div>
-      <p class="role-body">Tested LLM applications for accuracy, hallucination detection, context coherence, and output consistency; validated RAG pipelines for chunk retrieval accuracy, context relevance, and answer faithfulness; applied Prompt Engineering to craft deterministic test prompts for adversarial and edge-case model evaluation.</p>
-    </div>
-
-    <div class="role-card">
-      <div class="role-head"><span class="role-icon">💳</span><div><div class="role-name">API, XML &amp; ISO 20022 Payments Testing</div></div></div>
-      <p class="role-body">Authored Rest Assured (BDD / Cucumber) API suites; validated REST / SOAP APIs via Postman with XPath and XSD schema assertions; designed ISO 20022 compliance tests (pacs.008, pain.001) — validated financial XML schemas for field accuracy, mandatory elements, and end-to-end payment flow automation.</p>
-    </div>
-
-    <div class="role-card">
-      <div class="role-head"><span class="role-icon">⚡</span><div><div class="role-name">JMeter – Performance Testing</div></div></div>
-      <p class="role-body">Designed JMeter test plans with thread groups, ramp-up profiles, HTTP samplers, and assertions; executed load / stress / soak scenarios; analysed throughput, latency, and error rates via JMeter Dashboard and Grafana.</p>
-    </div>
-
-    <div class="role-card">
-      <div class="role-head"><span class="role-icon">📊</span><div><div class="role-name">Data Validation – SQL / MongoDB / Power BI</div></div></div>
-      <p class="role-body">Built Power BI dashboards tracking defect density, test coverage, sprint velocity, and quality KPIs; validated data models via MySQL; queried MongoDB collections using automated pipelines for NoSQL schema compliance; performed data modelling verification across relational and document-based datastores.</p>
-    </div>
-
-    <div class="role-card">
-      <div class="role-head"><span class="role-icon">🏆</span><div><div class="role-name">Test Strategy, Management &amp; Leadership</div></div></div>
-      <p class="role-body">Owned end-to-end test management: test strategy, test plans, RTM, resource planning, and sprint-level quality reporting to stakeholders; defined QA processes, automation standards, and coding best practices; led cross-functional defect triage, risk-based prioritisation, and go / no-go production decisions.</p>
-    </div>
-
-    <div class="role-card">
-      <div class="role-head"><span class="role-icon">👥</span><div><div class="role-name">Mentoring &amp; Team Development</div></div></div>
-      <p class="role-body">Structured mentoring programmes for junior QA engineers covering automation, API testing, and CI/CD; conducted regular code reviews, pair-testing sessions, and knowledge-sharing workshops; achieved 8% increase in pre-production defect detection and 25% CI/CD pipeline pass rate improvement.</p>
-    </div>
-
-    <div class="role-card">
-      <div class="role-head"><span class="role-icon">🔄</span><div><div class="role-name">CI/CD &amp; DevOps</div></div></div>
-      <p class="role-body">Configured GitHub Actions and Jenkins pipelines for test triggering and quality gates; ran Docker-based Selenium Grid environments; applied Kubernetes YAML manifests for parallel pod-based test execution; provisioned AWS EC2 / S3 for environment setup and artifact management.</p>
-    </div>
-
-    <div class="role-card">
-      <div class="role-head"><span class="role-icon">📡</span><div><div class="role-name">Kafka / Trino / MINIO (Working Knowledge – L1)</div></div></div>
-      <p class="role-body">Consumed Kafka topic messages to verify event-driven API flows; used Apache Trino for cross-datastore query validation; verified MINIO object storage for test artifact integrity during pipeline runs.</p>
-    </div>
-
   </div>
 </section>
 
-<!-- ACHIEVEMENTS -->
+<!-- ══ ACHIEVEMENTS ══════════════════════════════════════════════ -->
 <section id="achievements">
-  <span class="sec-eyebrow">05 // key_wins</span>
-  <h2 class="sec-title">Measurable <span>Impact</span></h2>
-  <div class="sec-bar"></div>
-  <div class="ach-grid">
-
-    <div class="ach-card">
-      <span class="ach-num">01</span>
-      <div class="ach-icon">🎯</div>
-      <p class="ach-body">Selected <strong>Playwright</strong> as the enterprise automation tool after evaluating all major open-source frameworks — built the full automation suite from scratch.</p>
-      <span class="ach-highlight">↓ 40% setup time</span>
+  <div class="section-inner">
+    <p class="section-tag">05 // key_wins</p>
+    <h2 class="section-title">Measurable <span>Impact</span></h2>
+    <div class="wins-grid">
+      <div class="win-card">
+        <div class="win-icon">🎯</div>
+        <div class="win-num">01</div>
+        <p class="win-text">Selected <strong>Playwright</strong> as the enterprise automation tool after evaluating all major open-source frameworks — built the full automation suite from scratch.</p>
+        <span class="win-badge">↓ 40% setup time</span>
+      </div>
+      <div class="win-card">
+        <div class="win-icon">🐛</div>
+        <div class="win-num">02</div>
+        <p class="win-text">Increased <strong>Defect Detection Efficiency</strong> through automated pre-production test coverage integrated into CI/CD pipelines.</p>
+        <span class="win-badge">↑ 8% defect catch rate</span>
+      </div>
+      <div class="win-card">
+        <div class="win-icon">🚀</div>
+        <div class="win-num">03</div>
+        <p class="win-text">Improved <strong>CI/CD Pipeline Pass Rate</strong> by building reliable, maintainable automation suites with quality gates and Slack-based failure notifications.</p>
+        <span class="win-badge">↑ 25% pass rate</span>
+      </div>
+      <div class="win-card">
+        <div class="win-icon">🤖</div>
+        <div class="win-num">04</div>
+        <p class="win-text">Pioneered <strong>AI-assisted QA practices</strong> — introduced LLM-based test case generation and GenAI-powered reporting workflows.</p>
+        <span class="win-badge">↓ ~30% manual effort</span>
+      </div>
+      <div class="win-card">
+        <div class="win-icon">🌱</div>
+        <div class="win-num">05</div>
+        <p class="win-text">Mentored <strong>5+ junior QA engineers</strong> across multiple organisations — several progressed to senior and lead roles in their careers.</p>
+        <span class="win-badge">5+ engineers grown</span>
+      </div>
     </div>
-
-    <div class="ach-card">
-      <span class="ach-num">02</span>
-      <div class="ach-icon">🐛</div>
-      <p class="ach-body">Increased <strong>Defect Detection Efficiency</strong> through automated pre-production test coverage integrated into CI/CD pipelines.</p>
-      <span class="ach-highlight">↑ 8% defect catch rate</span>
-    </div>
-
-    <div class="ach-card">
-      <span class="ach-num">03</span>
-      <div class="ach-icon">🚀</div>
-      <p class="ach-body">Improved <strong>CI/CD Pipeline Pass Rate</strong> by building reliable, maintainable automation suites with quality gates and Slack-based failure notifications.</p>
-      <span class="ach-highlight">↑ 25% pass rate</span>
-    </div>
-
-    <div class="ach-card">
-      <span class="ach-num">04</span>
-      <div class="ach-icon">🤖</div>
-      <p class="ach-body">Pioneered <strong>AI-assisted QA practices</strong> — introduced LLM-based test case generation and GenAI-powered reporting workflows.</p>
-      <span class="ach-highlight">↓ ~30% manual effort</span>
-    </div>
-
-    <div class="ach-card">
-      <span class="ach-num">05</span>
-      <div class="ach-icon">🌱</div>
-      <p class="ach-body">Mentored <strong>5+ junior QA engineers</strong> across multiple organisations — several progressed to senior and lead roles in their careers.</p>
-      <span class="ach-highlight">5+ engineers grown</span>
-    </div>
-
   </div>
 </section>
 
-<!-- NON-TECHNICAL SKILLS -->
-<section id="softskills">
-  <span class="sec-eyebrow">06 // soft_skills</span>
-  <h2 class="sec-title">Beyond the <span>Terminal</span></h2>
-  <div class="sec-bar"></div>
-  <div class="soft-grid">
-    <div class="soft-card"><div class="soft-icon">👑</div><div class="soft-title">Leadership &amp; Team Management</div><div class="soft-body">Resource planning, task allocation, sprint coordination, and cross-functional stakeholder communication.</div></div>
-    <div class="soft-card"><div class="soft-icon">🤝</div><div class="soft-title">Client Servicing</div><div class="soft-body">Regular client interaction for feedback cycles, requirement clarification, and delivery reviews.</div></div>
-    <div class="soft-card"><div class="soft-icon">🧩</div><div class="soft-title">Problem Solving</div><div class="soft-body">Root-cause analysis of complex defects, automation failures, and performance bottlenecks.</div></div>
-    <div class="soft-card"><div class="soft-icon">🔄</div><div class="soft-title">Agile &amp; Scrum</div><div class="soft-body">Sprint planning, stand-ups, reviews, retrospectives, and backlog grooming across multiple Agile teams.</div></div>
-    <div class="soft-card"><div class="soft-icon">📈</div><div class="soft-title">Adaptability &amp; Learning</div><div class="soft-body">Proactively upskilled in AI / GenAI testing, LLM evaluation, and no-code automation to stay ahead.</div></div>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
+<!-- ══ CERTS ══════════════════════════════════════════════════ -->
 <section id="certs">
-  <span class="sec-eyebrow">07 // credentials</span>
-  <h2 class="sec-title">Certified &amp; <span>Recognised</span></h2>
-  <div class="sec-bar"></div>
-  <div class="cert-grid">
-    <div class="cert-card">
-      <div class="cert-badge">🏅</div>
-      <div class="cert-name">ISTQB – CTFL</div>
-      <div class="cert-org">Certified Tester Foundation Level</div>
-      <div class="cert-date">October 2016 – Present</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-badge">🎓</div>
-      <div class="cert-name">Generative AI for Working Professionals</div>
-      <div class="cert-org">IIT Patna</div>
-      <div class="cert-date">Completed — June 17, 2026</div>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <span class="sec-eyebrow">08 // education</span>
-  <h2 class="sec-title">Academic <span>Foundation</span></h2>
-  <div class="sec-bar"></div>
-  <div class="edu-card">
-    <div class="edu-icon">🎓</div>
-    <div>
-      <div class="edu-degree">Bachelor of Engineering</div>
-      <div class="edu-inst">A.D. Patel Institute of Technology</div>
-      <div class="edu-meta">Gujarat Technological University &nbsp;|&nbsp; 2010 – 2014</div>
-      <span class="edu-badge">CGPA: 6.33 / 10</span>
+  <div class="section-inner">
+    <p class="section-tag">07 // credentials</p>
+    <h2 class="section-title">Certified &amp; <span>Recognised</span></h2>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-name">ISTQB – CTFL</div>
+        <div class="cert-issuer">Certified Tester Foundation Level</div>
+        <div class="cert-date">October 2016 – Present</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-name">Generative AI for Working Professionals</div>
+        <div class="cert-issuer">IIT Patna</div>
+        <div class="cert-date">Completed — June 17, 2026</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-name">Bachelor of Engineering</div>
+        <div class="cert-issuer">A.D. Patel Institute of Technology · GTU</div>
+        <div class="cert-date">2010 – 2014 &nbsp;|&nbsp; CGPA: 6.33 / 10</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ══ CONTACT ══════════════════════════════════════════════════ -->
 <section id="contact">
-  <span class="sec-eyebrow">09 // contact</span>
-  <h2 class="sec-title">Let's Build <span>Something Great</span></h2>
-  <div class="sec-bar" style="margin:0 auto 1.5rem;"></div>
-  <p class="contact-tagline">Open to Senior QA Lead, Automation Architecture, and AI Testing roles. Let's connect.</p>
-  <div class="contact-grid">
-    <a href="mailto:nishithpadh@gmail.com" class="c-card">
-      <span class="c-card-icon">📧</span>
-      <div><div class="c-card-text">nishithpadh@gmail.com</div><div class="c-card-sub">Drop me an email</div></div>
-    </a>
-    <a href="tel:+919167458785" class="c-card">
-      <span class="c-card-icon">📱</span>
-      <div><div class="c-card-text">+91 9167458785</div><div class="c-card-sub">Call anytime</div></div>
-    </a>
-    <a href="http://www.linkedin.com/in/nishith-padh-607466a0" target="_blank" class="c-card">
-      <span class="c-card-icon">💼</span>
-      <div><div class="c-card-text">LinkedIn Profile</div><div class="c-card-sub">Connect professionally</div></div>
-    </a>
-    <a href="#" class="c-card">
-      <span class="c-card-icon">📍</span>
-      <div><div class="c-card-text">Nagpur, Maharashtra</div><div class="c-card-sub">July 08, 2026</div></div>
-    </a>
+  <div class="section-inner">
+    <p class="section-tag">09 // contact</p>
+    <h2 class="section-title">Let's Build Something <span>Great</span></h2>
+    <p class="contact-intro">Open to Senior QA Lead, Automation Architecture, and AI Testing roles. Let's connect.</p>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:nishithpadh@gmail.com">
+        <span class="contact-card-icon">📧</span>
+        <span class="contact-card-label">Drop me an email</span>
+        <span class="contact-card-val">nishithpadh@gmail.com</span>
+      </a>
+      <a class="contact-card" href="tel:+919167458785">
+        <span class="contact-card-icon">📱</span>
+        <span class="contact-card-label">Call anytime</span>
+        <span class="contact-card-val">+91 9167458785</span>
+      </a>
+      <a class="contact-card" href="http://www.linkedin.com/in/nishith-padh-607466a0" target="_blank">
+        <span class="contact-card-icon">💼</span>
+        <span class="contact-card-label">Connect professionally</span>
+        <span class="contact-card-val">LinkedIn Profile</span>
+      </a>
+      <div class="contact-card">
+        <span class="contact-card-icon">📍</span>
+        <span class="contact-card-label">Location</span>
+        <span class="contact-card-val">Nagpur, Maharashtra</span>
+      </div>
+    </div>
   </div>
-  <div class="footer-line">Crafted with precision by <span>Nishith Padh</span> &nbsp;•&nbsp; Senior Software Test Lead &nbsp;•&nbsp; <span>July 2026</span></div>
 </section>
 
-<!-- BACK TO TOP -->
-<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<!-- ══ FOOTER ══════════════════════════════════════════════════ -->
+<footer>
+  Crafted with precision by Nishith Padh &nbsp;•&nbsp; Senior Software Test Lead &nbsp;•&nbsp; July 2026
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-/* ─── CANVAS PARTICLES ─── */
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
-let W, H, particles = [];
-function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-resize(); window.addEventListener('resize', resize);
-class Dot {
-  constructor(){ this.reset(); }
-  reset(){
-    this.x = Math.random()*W; this.y = Math.random()*H;
-    this.r = Math.random()*1.5+.5;
-    this.vx = (Math.random()-.5)*.25; this.vy = (Math.random()-.5)*.25;
-    this.alpha = Math.random()*.5+.1;
+  // ── Counter animation ────────────────────────────────────
+  function animateCounters() {
+    document.querySelectorAll('.counter-val[data-target]').forEach(el => {
+      const target  = parseFloat(el.dataset.target);
+      const suffix  = el.dataset.suffix  || '';
+      const decimals = parseInt(el.dataset.decimal || '0');
+      const duration = 1800;
+      const start    = performance.now();
+      (function step(now) {
+        const p   = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = (target * ease).toFixed(decimals) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      })(start);
+    });
   }
-  update(){
-    this.x += this.vx; this.y += this.vy;
-    if(this.x<0||this.x>W||this.y<0||this.y>H) this.reset();
-  }
-  draw(){
-    ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
-    ctx.fillStyle = `rgba(0,255,209,${this.alpha})`; ctx.fill();
-  }
-}
-for(let i=0;i<120;i++) particles.push(new Dot());
-function drawConnections(){
-  for(let i=0;i<particles.length;i++){
-    for(let j=i+1;j<particles.length;j++){
-      const d = Math.hypot(particles[i].x-particles[j].x,particles[i].y-particles[j].y);
-      if(d<110){
-        ctx.beginPath();
-        ctx.moveTo(particles[i].x,particles[i].y);
-        ctx.lineTo(particles[j].x,particles[j].y);
-        ctx.strokeStyle = `rgba(0,255,209,${(1-d/110)*.06})`;
-        ctx.lineWidth = .5; ctx.stroke();
-      }
-    }
-  }
-}
-function animate(){
-  ctx.clearRect(0,0,W,H);
-  particles.forEach(p=>{ p.update(); p.draw(); });
-  drawConnections();
-  requestAnimationFrame(animate);
-}
-animate();
+  const heroObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { animateCounters(); heroObs.disconnect(); }
+  }, { threshold: 0.25 });
+  heroObs.observe(document.querySelector('.hero'));
 
-/* ─── COUNTER ANIMATION ─── */
-const counters = document.querySelectorAll('.stat-num[data-target]');
-const countObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(!e.isIntersecting) return;
-    const el = e.target;
-    const target = parseFloat(el.dataset.target);
-    const dec = target % 1 !== 0;
-    let cur = 0, step = target/60;
-    const timer = setInterval(()=>{
-      cur = Math.min(cur+step, target);
-      el.textContent = dec ? cur.toFixed(1) : Math.floor(cur) + (target===6?'+':target===25||target===8?'%':'');
-      if(cur >= target){ el.textContent = target + (target===6?'+':target===25||target===8?'%':target===11.6?' yrs':''); clearInterval(timer); }
-    }, 25);
-    countObserver.unobserve(el);
+  // ── Back to top ──────────────────────────────────────────
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    backTop.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+
+  // ── Hamburger menu ───────────────────────────────────────
+  const toggle = document.getElementById('navToggle');
+  const drawer = document.getElementById('navDrawer');
+  toggle.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
   });
-}, {threshold:0.5});
-counters.forEach(c => countObserver.observe(c));
-
-/* ─── SCROLL REVEAL ─── */
-const revealObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
-}, {threshold:0.08});
-document.querySelectorAll('.exp-item,.role-card,.ach-card').forEach((el,i) => {
-  el.style.transitionDelay = `${(i%4)*0.08}s`;
-  revealObs.observe(el);
-});
-
-/* ─── BACK TO TOP ─── */
-const btt = document.getElementById('btt');
-window.addEventListener('scroll',()=>{ btt.classList.toggle('show', window.scrollY>400); });
-
-/* ─── TYPEWRITER HERO ─── */
-const titles = ['QA Automation Expert','AI Testing Specialist','LLM Test Engineer','Performance Engineer','Test Architect'];
-let ti=0,ci=0,del=false;
-const el = document.querySelector('.hero-role em');
-if(el){
-  el.textContent = titles[0];
-  function type(){
-    const cur = titles[ti];
-    if(!del){ el.textContent=cur.slice(0,++ci); if(ci===cur.length){del=true;setTimeout(type,2000);return;} }
-    else { el.textContent=cur.slice(0,--ci); if(ci===0){del=false;ti=(ti+1)%titles.length;} }
-    setTimeout(type, del?40:75);
-  }
-  setTimeout(type, 1800);
-}
-
-/* ─── NAV ACTIVE ─── */
-const secs = document.querySelectorAll('section[id]');
-const navAs = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll',()=>{
-  let cur='';
-  secs.forEach(s=>{ if(window.scrollY>=s.offsetTop-150) cur=s.id; });
-  navAs.forEach(a=>{ a.style.color = a.getAttribute('href')==='#'+cur ? 'var(--teal)' : ''; });
-});
+  // Close drawer when a link is clicked
+  drawer.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    });
+  });
+  // Close on outside click
+  document.addEventListener('click', e => {
+    if (!toggle.contains(e.target) && !drawer.contains(e.target)) {
+      drawer.classList.remove('open');
+      toggle.classList.remove('open');
+    }
+  });
 </script>
 </body>
 </html>
